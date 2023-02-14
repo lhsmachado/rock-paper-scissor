@@ -26,55 +26,23 @@ function round(){
     getPlayerSelection();
     getComputerSelection();
     
-    switch (playerselection){
-        case 'rock':{
-            if (computerselection === playerselection){
-                console.log("It's a tie! Try Again!");
-                round();
-            }
-            if (computerselection === 'paper'){
-                console.log("Computer wins! Paper beats rock.");
-                computerscore ++;
-                return (computerscore);
-            }
-            if (computerselection === 'scissor'){
-                console.log("You Win! Rock beats scissor.");
-                playerscore ++;
-                return (playerscore);
-            }
+    if (computerselection== 'paper' && playerselection=='scissor' || computerselection=='rock' && playerselection=='paper' ||
+        computerselection=='scissor' && playerselection=='rock')
+        {
+            console.log ("You win this round!")
+            playerscore ++;
         }
-        case 'paper':{
-            if (computerselection === playerselection){
-                console.log("It's a tie! Try Again!");
-                round();
-            }
-            if (computerselection === 'scissor'){
-                console.log("Computer wins! Scissor beats paper.");
-                computerscore ++;
-                return (computerscore);
-            }
-            if (computerselection === 'rock'){
-                console.log("You Win! Paper beats rock.");
-                playerscore ++;
-                return (playerscore);
-            }
+    if (playerselection=='paper' && computerselection=='scissor' || playerselection=='rock' && computerselection=='paper' ||
+        playerselection=='scissor' && computerselection=='rock')
+        {
+            console.log ("Oh no! You lose the round!")
+            computerscore ++;
         }
-        case 'scissor':{
-            if (computerselection === playerselection){
-                console.log("It's a tie! Try Again!");
-                round();
-            }
-            if (computerselection === 'rock'){
-                console.log("Computer wins! Rock beats scissor.");
-                computerscore ++;
-                return (computerscore);
-            }
-            if (computerselection === 'paper'){
-                console.log("You win the round! Scissor beats paper.");
-                playerscore ++;
-                return (playerscore);
-            }
-        }
+    
+    if (computerselection==playerselection)
+    {
+        console.log ("It's a Tie, please try again!")
+        round();
     }
 }
 
