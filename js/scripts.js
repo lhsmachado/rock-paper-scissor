@@ -1,10 +1,23 @@
-let weapon = ['rock', 'paper', 'scissor'];
+const weapon = ['rock', 'paper', 'scissor'];
 let computerselection;
 let playerselection;
 let playerscore = 0;
 let computerscore = 0;
 
-game();
+document.getElementById("rock").addEventListener("click", function(){
+    playerselection = 'rock';
+    round();
+})
+document.getElementById("paper").addEventListener("click", function(){
+    playerselection = 'paper';
+    round();
+})
+document.getElementById("scissor").addEventListener("click", function(){
+    playerselection = 'scissor';
+    round();
+})
+
+//game();
 
 function getComputerSelection() { 
     let number;
@@ -13,48 +26,26 @@ function getComputerSelection() {
     return(computerselection);
 }
 
-function getPlayerSelection(){
-    playerselection = prompt ('Make Your Choice');
-    if (playerselection != 'rock' && playerselection != 'paper' && playerselection != 'scissor'){
-        alert ('Make another choice!');
-        getPlayerSelection();
-    }
-    return (playerselection);
-}
-
 function round(){
-    getPlayerSelection();
     getComputerSelection();
-    
+    let resultado;
     if (computerselection== 'paper' && playerselection=='scissor' || computerselection=='rock' && playerselection=='paper' ||
         computerselection=='scissor' && playerselection=='rock')
         {
-            console.log ("You win this round!")
+            resultado = `<p>Você ganhou, parabéns ${playerselection} ganhou de ${computerselection}</p> `
             playerscore ++;
         }
     if (playerselection=='paper' && computerselection=='scissor' || playerselection=='rock' && computerselection=='paper' ||
         playerselection=='scissor' && computerselection=='rock')
         {
-            console.log ("Oh no! You lose the round!")
+            resultado = `<p>Você perdeu ${playerselection} perdeu de ${computerselection}</p> `
             computerscore ++;
         }
     
     if (computerselection==playerselection)
     {
-        console.log ("It's a Tie, please try again!")
-        round();
+        resultado = `<p>Isso foi um empate, tente novamente<p>`
     }
-}
-
-function game(){
-    for (let i=0; i<5; i++){
-        round();
+        document.getElementById("resultado").innerHTML = resultado;
+        playerselection = '';
     }
-    if (playerscore > computerscore){
-        console.log ("Congratulations, you win the game!");
-    }
-    else {
-        console.log ("Oh no! The computer beat's you.")
-    }
-
-}
