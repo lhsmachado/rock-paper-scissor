@@ -1,0 +1,30 @@
+h1{
+    background-color: blue;
+    padding: 50PX;
+    text-align: center;
+    margin: 0;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.titulo{
+    text-align: center;
+
+}
+
+.btn{
+    margin-left: 20px;
+}
+
+.btn img{
+    width: 50px;
+}
+
+.resultado{
+    text-align: center;
+}
